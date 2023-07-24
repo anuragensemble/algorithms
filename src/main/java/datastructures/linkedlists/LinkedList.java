@@ -1,16 +1,16 @@
 package datastructures.linkedlists;
 
 public class LinkedList<Item> {
-    private class Node {
-        Item value;
-        Node next;
+    public class Node {
+        public Item value;
+        public Node next;
         Node(Item value) {
             this.value = value;
             this.next = null;
         }
     }
 
-    Node head;
+    public Node head;
     public LinkedList() {
         this.head = null;
     }
