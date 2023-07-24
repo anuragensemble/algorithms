@@ -2,7 +2,7 @@ package datastructures.queues;
 
 import datastructures.linkedlists.LinkedList;
 
-public class QueueLinkedList implements Queue {
+public class QueueLinkedList extends LinkedList<Integer> implements Queue {
     Node head;
     Node tail;
     QueueLinkedList(){
@@ -37,7 +37,7 @@ public class QueueLinkedList implements Queue {
     }
 
     @Override
-    public int dequeue() {
+    public Integer dequeue() {
         // Empty queue
         if (this.head == null) {
             return 0;

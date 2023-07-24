@@ -1,10 +1,10 @@
 package datastructures.linkedlists;
 
-public class LinkedList {
-    private static class Node {
-        int value;
+public class LinkedList<Item> {
+    private class Node {
+        Item value;
         Node next;
-        Node(int value) {
+        Node(Item value) {
             this.value = value;
             this.next = null;
         }
@@ -15,13 +15,13 @@ public class LinkedList {
         this.head = null;
     }
 
-    public void push(int value) {
+    public void push(Item value) {
         Node node = new Node(value);
         node.next = this.head;
         this.head = node;
     }
 
-    public void append(int value) {
+    public void append(Item value) {
         Node node = this.head;
         if (node == null) {
             // No elements. Equivalent to push
@@ -35,20 +35,20 @@ public class LinkedList {
         node.next = new Node(value);
     }
 
-    public void enqueue(int value) {
+    public void enqueue(Item value) {
         append(value);
     }
 
-    public int pop() {
+    public Item pop() {
         if (this.head == null) {
-            return 0;
+            return null;
         }
-        int pop = this.head.value;
+        Item pop = this.head.value;
         this.head = this.head.next;
         return pop;
     }
 
-    public int dequeue() {
+    public Item dequeue() {
         return pop();
     }
 
@@ -73,7 +73,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList<Integer> list = new LinkedList<Integer>();
         list.push(1);
         list.push(2);
         list.append(3);

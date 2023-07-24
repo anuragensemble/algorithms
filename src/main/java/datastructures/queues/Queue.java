@@ -2,7 +2,7 @@ package datastructures.queues;
 
 public interface Queue {
     void enqueue(int data);
-    int dequeue();
+    Integer dequeue();
     boolean isEmpty();
     int size();
 }

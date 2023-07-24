@@ -2,19 +2,9 @@ package datastructures.stacks;
 
 import datastructures.linkedlists.LinkedList;
 
-public class StackLinkedList extends LinkedList implements IntegerStack {
+public class StackLinkedList extends LinkedList<Integer> {
     StackLinkedList() {
         super();
-    }
-
-    @Override
-    public int size() {
-        return length();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return length() == 0;
     }
 
     public static void main(String[] args) {

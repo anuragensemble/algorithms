@@ -21,7 +21,7 @@ public class QueueCircularArray implements Queue {
     }
 
     @Override
-    public int dequeue() {
+    public Integer dequeue() {
         // Empty queue
         if (queue.length == 0) {
             return -1;
