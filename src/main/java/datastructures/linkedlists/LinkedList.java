@@ -48,8 +48,8 @@ public class LinkedList {
         return pop;
     }
 
-    public void dequeue() {
-        pop();
+    public int dequeue() {
+        return pop();
     }
 
     public int length() {
