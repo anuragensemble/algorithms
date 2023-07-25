@@ -5,8 +5,8 @@ import sorting.InsertionSort;
 import java.util.*;
 
 public class ThreeSumSlidingPointers {
-    public static int[][] threeSum(int[] integers) {
-        InsertionSort.sort(integers); // [-4, -1, -1, 0 , 1, 2]
+    public static int[][] threeSum(Integer[] integers) {
+        InsertionSort.Sort(integers); // [-4, -1, -1, 0 , 1, 2]
         int N = integers.length;
 
         Set<String> tripletsHash = new HashSet<>();
@@ -41,15 +41,15 @@ public class ThreeSumSlidingPointers {
     }
 
     public static void main(String[] args) {
-        int[] testCase = {-1,0,1,2,-1,-4};
+        Integer[] testCase = {-1,0,1,2,-1,-4};
         int[][] triplets = ThreeSumSlidingPointers.threeSum(testCase);
         System.out.println(Arrays.deepToString(triplets));
 
-        testCase = new int[]{0, 1, 1};
+        testCase = new Integer[]{0, 1, 1};
         triplets = ThreeSumSlidingPointers.threeSum(testCase);
         System.out.println(Arrays.deepToString(triplets));
 
-        testCase = new int[]{0, 0, 0};
+        testCase = new Integer[]{0, 0, 0};
         triplets = ThreeSumSlidingPointers.threeSum(testCase);
         System.out.println(Arrays.deepToString(triplets));
     }

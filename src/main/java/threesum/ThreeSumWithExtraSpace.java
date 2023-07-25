@@ -18,8 +18,8 @@ public class ThreeSumWithExtraSpace {
             for (int j = i+1; j < N; j++) {
                 int complement = -(integers[i] + integers[j]);
                 if (firstElem.containsKey(complement) && firstElem.get(complement) > j) { // Comparing the index of complement to be > j to avoid duplication between triplet members
-                    int[] tripletArray = new int[]{complement, integers[i], integers[j]};
-                    InsertionSort.sort(tripletArray);
+                    Integer[] tripletArray = new Integer[]{complement, integers[i], integers[j]};
+                    InsertionSort.Sort(tripletArray);
                     tripletsHash.add(tripletArray[0] + "," + tripletArray[1] + "," + tripletArray[2]);
                 }
             }

@@ -5,11 +5,11 @@ import sorting.InsertionSort;
 import java.util.*;
 
 public class ThreeSumNaive {
-    public static int[][] threeSum(int[] integers) {
+    public static int[][] threeSum(Integer[] integers) {
         int[][] result = new int[][]{};
         Set<String> triplets = new HashSet<>();
         int N = integers.length;
-        InsertionSort.sort(integers);
+        InsertionSort.Sort(integers);
         for (int i = 0; i < N; i++) {
             for (int j = i+1; j < N; j++) {
                 for (int k = j+1; k < N; k++) {
@@ -32,15 +32,15 @@ public class ThreeSumNaive {
         return result;
     }
     public static void main(String[] args) {
-        int[] testCase = {-1,0,1,2,-1,-4};
+        Integer[] testCase = {-1,0,1,2,-1,-4};
         int[][] triplets = ThreeSumNaive.threeSum(testCase);
         System.out.println(Arrays.deepToString(triplets));
 
-        testCase = new int[]{0, 1, 1};
+        testCase = new Integer[]{0, 1, 1};
         triplets = ThreeSumNaive.threeSum(testCase);
         System.out.println(Arrays.deepToString(triplets));
 
-        testCase = new int[]{0, 0, 0};
+        testCase = new Integer[]{0, 0, 0};
         triplets = ThreeSumNaive.threeSum(testCase);
         System.out.println(Arrays.deepToString(triplets));
     }
