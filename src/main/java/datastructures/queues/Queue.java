@@ -1,8 +1,8 @@
 package datastructures.queues;
 
-public interface Queue {
-    void enqueue(int data);
-    Integer dequeue();
+public interface Queue<Item> {
+    void enqueue(Item data);
+    Item dequeue();
     boolean isEmpty();
     int size();
 }

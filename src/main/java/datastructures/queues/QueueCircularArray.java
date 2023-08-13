@@ -2,14 +2,14 @@ package datastructures.queues;
 
 import java.util.Arrays;
 
-public class QueueCircularArray implements Queue {
-    int[] queue = new int[10];
+public class QueueCircularArray<Item> implements Queue<Item> {
+    Item[] queue = (Item[]) new Object[10];
     int In = 0;
     int Out = 0;
     @Override
-    public void enqueue(int data) {
+    public void enqueue(Item data) {
         if (queue.length == 0) {
-            queue = new int[1];
+            queue = (Item[]) new Object[10];
         }
         if (In >= queue.length) {
             // Overflow about to happen. Resize double
@@ -21,12 +21,12 @@ public class QueueCircularArray implements Queue {
     }
 
     @Override
-    public Integer dequeue() {
+    public Item dequeue() {
         // Empty queue
         if (queue.length == 0) {
-            return -1;
+            return null;
         }
-        int val = queue[Out];
+        Item val = queue[Out];
         if (size() < (queue.length / 4)) {
             resizeQueue(queue.length / 2);
         } else {
@@ -54,7 +54,7 @@ public class QueueCircularArray implements Queue {
         int start = Out;
         int end = In;
         int idx = 0;
-        int[] copy = new int[capacity];
+        Item[] copy = (Item[]) new Object[capacity];
         while (start < end) {
             copy[idx] = queue[start];
             start++;

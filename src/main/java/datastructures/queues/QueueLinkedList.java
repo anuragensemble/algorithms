@@ -2,7 +2,7 @@ package datastructures.queues;
 
 import datastructures.linkedlists.LinkedList;
 
-public class QueueLinkedList extends LinkedList<Integer> implements Queue {
+public class QueueLinkedList<Item> extends LinkedList<Item> implements Queue<Item> {
     Node head;
     Node tail;
     QueueLinkedList(){
@@ -10,18 +10,18 @@ public class QueueLinkedList extends LinkedList<Integer> implements Queue {
         this.tail = null;
     }
 
-    private static class Node {
-        int value;
+    private static class Node<Item> {
+        Item value;
         Node next;
 
-        Node(int value) {
+        Node(Item value) {
             this.value = value;
             this.next = null;
         }
     }
 
     @Override
-    public void enqueue(int data) {
+    public void enqueue(Item data) {
         Node node = new Node(data);
 
         // Empty Queue
@@ -37,14 +37,14 @@ public class QueueLinkedList extends LinkedList<Integer> implements Queue {
     }
 
     @Override
-    public Integer dequeue() {
+    public Item dequeue() {
         // Empty queue
         if (this.head == null) {
-            return 0;
+            return null;
         }
         Node node = this.head;
         this.head = node.next;
-        return node.value;
+        return (Item) node.value;
     }
 
     @Override
