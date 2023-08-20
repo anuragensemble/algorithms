@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class MaxHeap<Item extends Comparable> extends BinaryHeap<Item> {
 
-    MaxHeap() {
+    public MaxHeap() {
         super();
     }
 
