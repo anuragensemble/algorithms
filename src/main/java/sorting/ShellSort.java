@@ -14,7 +14,7 @@ public class ShellSort extends Sorting{
 //        System.out.println(h);
         while (h >= 1) {
             // h-sort the array
-            for (int i = 0; i < N; i++) {
+            for (int i = h; i < N; i++) {
                 for (int j = i; j >= h; j-=h) {
                     if (less(array[j], array[j-h])) {
                         swap(array, j, j-h);
