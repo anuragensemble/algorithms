@@ -93,6 +93,17 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> implements 
 
     @Override
     public Value get(Key key) {
+        Node node = this.root;
+        while (node != null) {
+            int comparator = key.compareTo(node.key);
+            if (comparator < 0) {
+                node = node.left;
+            } else if (comparator > 0) {
+                node = node.right;
+            } else {
+                return node.value;
+            }
+        }
         return null;
     }
 
@@ -215,9 +226,11 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> implements 
         avl.put("P", 9);
         avl.put("L", 10);
         System.out.println(avl);
+        System.out.println(avl.get("P"));
         avl.delete("C");
         avl.delete("A");
         avl.delete("M");
         System.out.println(avl);
+        System.out.println(avl.get("P"));
     }
 }
