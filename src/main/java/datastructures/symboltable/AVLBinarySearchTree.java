@@ -1,12 +1,12 @@
 package datastructures.symboltable;
 
 public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value> {
-    private Node root;
-    private class Node {
-        private Key key;
-        private Value value;
-        private Node left;
-        private Node right;
+    public Node root;
+    public class Node {
+        public Key key;
+        public Value value;
+        public Node left;
+        public Node right;
         private int height;
 
         public Node(Key key, Value value) {
@@ -197,20 +197,32 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> implements 
     }
 
     public String toString() {
-        return pretty(root, "", 1);
+        return pretty(root, "", 1, false);
     }
 
-    private String pretty(Node root, String prefix, int dir) {
+    public String printTreeValues() {
+        return pretty(root, "", 1, true);
+    }
+
+    public String printTreeKeys() {
+        return toString();
+    }
+
+    private String pretty(Node root, String prefix, int dir, boolean printValues) {
         if (root == null) {
             return "";
         }
 
-        String space = " ".repeat(("" + root.key).length());
-        return pretty(root.right, prefix + "│  ".charAt(dir) + space, 2)
-                + prefix + "└ ┌".charAt(dir) + root.key
+        Object key = root.key;
+        if (printValues) {
+            key = root.value;
+        }
+        String space = " ".repeat(("" + key).length());
+        return pretty(root.right, prefix + "│  ".charAt(dir) + space, 2, printValues)
+                + prefix + "└ ┌".charAt(dir) + key
                 + " ┘┐┤".charAt((root.left  != null ? 2 : 0)
                 + (root.right != null ? 1 : 0)) + "\n"
-                + pretty(root.left, prefix + "  │".charAt(dir) + space, 0);
+                + pretty(root.left, prefix + "  │".charAt(dir) + space, 0, printValues);
     }
 
     public static void main(String[] args) {
@@ -226,6 +238,7 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> implements 
         avl.put("P", 9);
         avl.put("L", 10);
         System.out.println(avl);
+        System.out.println(avl.printTreeValues());
         System.out.println(avl.get("P"));
         avl.delete("C");
         avl.delete("A");
