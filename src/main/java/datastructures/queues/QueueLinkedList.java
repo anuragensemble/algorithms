@@ -5,7 +5,7 @@ import datastructures.linkedlists.LinkedList;
 public class QueueLinkedList<Item> extends LinkedList<Item> implements Queue<Item> {
     Node head;
     Node tail;
-    QueueLinkedList(){
+    public QueueLinkedList(){
         this.head = null;
         this.tail = null;
     }

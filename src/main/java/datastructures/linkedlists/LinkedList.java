@@ -8,6 +8,17 @@ public class LinkedList<Item> {
             this.value = value;
             this.next = null;
         }
+
+        public String toString() {
+            StringBuilder stringBuilder = new StringBuilder();
+            Node start = this;
+            while (start != null) {
+                stringBuilder.append(start.value).append("--->");
+                start = start.next;
+            }
+            stringBuilder.append("NULL");
+            return stringBuilder.toString();
+        }
     }
 
     public Node head;
@@ -70,6 +81,18 @@ public class LinkedList<Item> {
             node = node.next;
         }
         System.out.println();
+    }
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        Node node = this.head;
+        while (node != null) {
+            stringBuilder.append(node.value);
+            stringBuilder.append("--->");
+            node = node.next;
+        }
+        stringBuilder.append("NULL");
+        return stringBuilder.toString();
     }
 
     public static void main(String[] args) {

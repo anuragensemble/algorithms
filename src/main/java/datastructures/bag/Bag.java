@@ -6,11 +6,11 @@ import org.w3c.dom.Node;
 import java.util.Iterator;
 
 public class Bag<Item> extends LinkedList<Item> implements Iterable<Item> {
-    Bag() {
+    public Bag() {
         super();
     }
 
-    void add(Item X) {
+    public void add(Item X) {
         push(X);
     }
 
@@ -35,6 +35,14 @@ public class Bag<Item> extends LinkedList<Item> implements Iterable<Item> {
             current = current.next;
             return item;
         }
+    }
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Item i : this) {
+            result.append(i).append("\t");
+        }
+        return result.toString();
     }
 
     public static void main(String[] args) {
